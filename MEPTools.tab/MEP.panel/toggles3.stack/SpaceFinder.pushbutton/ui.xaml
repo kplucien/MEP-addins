@@ -1,0 +1,18 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Hello World"
+        Width="351.148" ResizeMode="NoResize" SizeToContent="Height" Height="615.023" Background="#FFDEFFEB">
+    <StackPanel Margin="10">
+        <Label Content="Copy filters from" Margin="0,0,0,10" Height="25" />
+        <ComboBox x:Name="listview2" ItemsSource="{Binding listview2}" DisplayMemberPath="Name" SelectedIndex="0"/>
+        <Label x:Name="label" Content="Copy filters to" HorizontalAlignment="Left" Height="32" Width="325"/>
+        <ListView x:Name="listview1" HorizontalAlignment="Left" Height="457" Width="325" ItemsSource="{Binding listview}" SelectionMode="Multiple" Foreground="Red" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="All view templates" DisplayMemberBinding="{Binding Name}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="button" Content="Button" Click="fun"/>
+    </StackPanel>
+</Window>
