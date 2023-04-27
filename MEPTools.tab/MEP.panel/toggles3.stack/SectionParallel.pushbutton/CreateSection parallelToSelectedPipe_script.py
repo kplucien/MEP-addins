@@ -72,8 +72,9 @@ if d < 10 :
 
 #adjustments of X and Y window extend of the section
 
-min = XYZ(-w-1, -8.5, -offset)   
-max = XYZ(w+1, 8.5, offset)
+min = XYZ(-w-1, -12.5, -offset/2-50/304.8)   
+max = XYZ(w+1, 6.5, offset)
+
 
 midpoint = p + 0.5*v
 walldir = -v.Normalize()
