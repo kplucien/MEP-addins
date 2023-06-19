@@ -1,5 +1,5 @@
 #Define Document
-__title__ = "IFCExporter"
+__title__ = "Export IFC from selection"
 __author__ = 'Kamil Pluciennik'
 __context__ = 'Selection'
 
@@ -131,7 +131,8 @@ for view in selection:
         
 
 for x in doc.ProjectLocations:
-    if x.Name == "PALLAS Health Centre - B":
+    #if x.Name == "PALLAS Health Centre - B":
+    if x.Name.Contains("PALLAS Health Centre"):
         doc.ActiveProjectLocation = x
              
 
