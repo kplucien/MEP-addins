@@ -58,7 +58,7 @@ mycon.IncludeSteelElements = True
 mycon.ProjectAddress.UpdateProjectInformation = False
 mycon.ProjectAddress.AssignAddressToSite = False
 mycon.ProjectAddress.AssignAddressToBuilding = False
-mycon.Export2DElements = True
+mycon.Export2DElements = False
 mycon.ExportLinkedFiles = False
 mycon.VisibleElementsOfCurrentView = True
 mycon.ExportRoomsInView = False
@@ -69,7 +69,10 @@ mycon.ExportBaseQuantities = True
 mycon.ExportSchedulesAsPsets = True
 mycon.ExportSpecificSchedules = True
 mycon.ExportUserDefinedPsets = True
-mycon.ExportUserDefinedPsetsFileName = "%USERPROFILE%\\DC\\ACCDocs\\INVAP\\PALLAS - Production\\Project Files\\01-wip\\s0-hvac\\08. framework\\00. settings\\IFC-settings\\PLLS_ParameterSeats.txt"
+
+#mycon.ExportUserDefinedPsetsFileName = "C:\\Users\\KPlucien\\DC\\ACCDocs\\INVAP\\PALLAS - Production\\Project Files\\01-wip\\s0-hvac\\08. framework\\00. settings\\IFC-settings\\PLLS_ParameterSets.txt"
+mycon.ExportUserDefinedPsetsFileName = "C:\\Users\\KPlucien\\DC\\ACCDocs\\INVAP\\PALLAS - Production\\Project Files\\01-wip\\s0-framework\\02-revit\\00-settings\\02-ifc_settings\\PLLS_ParameterSets.txt"
+
 mycon.ExportUserDefinedParameterMapping = False
 mycon.ExportUserDefinedParameterMappingFileName = ""
 mycon.ClassificationSettings.ClassificationName = None
@@ -88,7 +91,8 @@ mycon.IncludeSiteElevation = False
 mycon.StoreIFCGUID = True
 mycon.ExportBoundingBox = False
 mycon.UseOnlyTriangulation = False
-mycon.UseTypeNameOnlyForIfcType = True
+
+mycon.UseTypeNameOnlyForIfcType = False
 mycon.UseVisibleRevitNameAsEntityName = False
 mycon.SelectedSite = "IFC Export"
 mycon.SitePlacement.Site
@@ -132,7 +136,7 @@ for view in selection:
 
 for x in doc.ProjectLocations:
     #if x.Name == "PALLAS Health Centre - B":
-    if x.Name.Contains("PALLAS Health Centre"):
+    if x.Name.Contains("PALLAS Site"):
         doc.ActiveProjectLocation = x
              
 
