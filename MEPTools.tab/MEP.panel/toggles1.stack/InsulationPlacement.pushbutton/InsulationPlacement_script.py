@@ -65,9 +65,10 @@ tx.Start()
 #get first item from list or get by name
 #duct_ins = duct_insulated[0].LookupParameter("Insulation Type").AsString()
 duct_ins = "NLRS_57_DUI_UN_uitwendige isolatie_generiek"
-
 thickness_duct = duct_insulated[0].LookupParameter("Insulation Thickness").AsDouble()
 
+pipe_ins = pipe_insulated[0].LookupParameter("Insulation Type").AsString()
+thickness_pipe = pipe_insulated[0].LookupParameter("Insulation Thickness").AsDouble()
 
 try:
     duct_get_insulation = filter(lambda x: duct_ins in x.LookupParameter("Type Name").AsString(), duct_all_insulations)
@@ -78,18 +79,12 @@ try:
         #print("Duct Id {} insualtion was filled".format(el.Id))
 
 
-
-
-
-    pipe_ins = pipe_insulated[0].LookupParameter("Insulation Type").AsString()
-    thickness_pipe = pipe_insulated[0].LookupParameter("Insulation Thickness").AsDouble()
     pipe_get_insulation = filter(lambda x: pipe_ins in x.LookupParameter("Type Name").AsString(), pipe_all_insulations)
     pipe_insulation = pipe_get_insulation[0]
 
     for el in pipe_insulation_missing:
         PipeInsulation.Create(doc, el.Id, pipe_insulation.Id, thickness_pipe)
         #print("Pipe Id {} insualtion was filled".format(el.Id))
-        el_ids.append(el.Id)
 
 
 except:
