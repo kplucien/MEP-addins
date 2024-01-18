@@ -1,5 +1,4 @@
-template_name = "cwd-kpl"
-template_alternative = "IV-kpl"
+temp_list= ["cwd-kpl", "IV-kpl", "IV_KPl",]
 
 __title__ = "Parallel section"
 __author__ = "Kamil Pluciennik"
@@ -7,6 +6,8 @@ __doc__ = """Create section parallel to selected pipe, duct or cable tray.
 Alt + click will open script in file explorer. Please set up your private template name (1st line in script), 
 """
 
+#old : template_name = "cwd-kpl"
+#old: template_alternative = "IV-kpl"
 
 import clr
 import Autodesk.Revit.DB as DB
@@ -71,9 +72,11 @@ if d < 10 :
 	d = 10
 
 #adjustments of X and Y window extend of the section
+#min Z - section offset from element
+dist = 10
 
-min = XYZ(-w-1, -12.5, -offset/2-50/304.8)   
-max = XYZ(w+1, 6.5, offset)
+min = XYZ(-w-1, -12.5, -offset/2-dist/304.8)   
+max = XYZ(w+1, 8.5, offset)
 
 
 midpoint = p + 0.5*v
@@ -108,8 +111,10 @@ tx = Transaction(doc, "Set template")
 try:
 	out=FilteredElementCollector(doc).OfClass(View).WhereElementIsNotElementType().ToElements()
 	for i in out:
-		if i.Name == template_name or i.Name == template_alternative:
+		if i.Name in temp_list:
 			template = i
+#		if i.Name == template_name or i.Name == template_alternative:
+#			template = i
 
 	tx.Start()
 
